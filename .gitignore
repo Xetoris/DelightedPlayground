@@ -40,3 +40,5 @@ Thumbs.db
 
 # Environment's other than environment.ts, since this is demo project.
 environment.*.ts
+
+Gemfile.lock
