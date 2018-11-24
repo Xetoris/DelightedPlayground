@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DelightedService } from "../../app-services/delighted/delighted.service";
+import { environment } from "../../../environments/environment";
 import { SurveyResponse } from "../../app-services/delighted/models/survey-response";
 
 @Component({
@@ -13,6 +15,8 @@ export class RecentSurveysComponent implements OnInit {
   constructor(private delighted: DelightedService) { }
 
   ngOnInit() {
+    this.delighted.setApiKey(environment.delightedApiKey);
+
     this.delighted.latestSurveyResponses()
       .subscribe(x => this.results = x);
   }

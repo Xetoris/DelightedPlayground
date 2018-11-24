@@ -5,13 +5,8 @@ import { RecentSurveysComponent } from './recent-surveys/recent-surveys.componen
 
 const routes: Routes = [
   {
-    path: 'recent',
-    component: RecentSurveysComponent
-  },
-  {
     path: '',
-    redirectTo: 'recent',
-    pathMatch: 'full'
+    component: RecentSurveysComponent
   }
 ];
 

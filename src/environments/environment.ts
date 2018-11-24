@@ -3,9 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
   delighted: 'DELIGHTED_ADDRESS',
-  mockServices: false
+  delightedApiKey: 'DELIGHTED_API_KEY',
+  mockServices: false,
+  production: false,
 };
 
 /*
