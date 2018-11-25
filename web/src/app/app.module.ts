@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule, MatIconRegistry } from '@angular/material';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,9 +15,16 @@ import { AppServicesModule } from './app-services/app-services.module';
     AppRoutingModule,
     AppServicesModule.forRoot(),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+    MatIconRegistry
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(public matIconRegistry: MatIconRegistry) {
+    this.matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+  }
+}

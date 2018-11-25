@@ -1,3 +1,14 @@
-<p>
-  recent-surveys works!
-</p>
+<mat-grid-list id="survey-results" cols="3" rowHeight="fit">
+  <mat-grid-tile *ngFor="let response of results">
+    <mat-card id="response-{{response.id}}">
+      <mat-card-header>
+        <mat-icon fontSet="fa" fontIcon="{{response.score | responseIcon}}"></mat-icon>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="response-date">{{response.createdAt | date}}</div>
+        <div class="rating">{{response.score}}</div>
+        <div class="comment">{{response.comment}}</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

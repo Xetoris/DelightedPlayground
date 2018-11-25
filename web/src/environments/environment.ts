@@ -4,7 +4,6 @@
 
 export const environment = {
   delighted: 'DELIGHTED_ADDRESS',
-  delightedApiKey: 'DELIGHTED_API_KEY',
   mockServices: false,
   production: false,
 };
