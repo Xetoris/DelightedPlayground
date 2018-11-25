@@ -14,6 +14,9 @@ module Delighted
 
           hash[:id] = response.id
 
+          hash[:created_at] = Time.at(hash[:created_at])
+          hash[:updated_at] = Time.at(hash[:updated_at])
+
           hash
         end
       end

@@ -8,8 +8,8 @@ export interface SurveyResponse {
   score: number;
   comment: string;
   permalink: string;
-  createdAt: number;
-  updatedAt: number;
+  createdAt: string;
+  updatedAt: string;
   notes: string[];
   tags: string[];
   personProperties: PersonProperties;
