@@ -1,3 +1,5 @@
+@import "../../styles/material.mixins";
+
 #survey-results {
   height: 100%;
 }
@@ -5,6 +7,31 @@
 mat-card {
   min-width: 300px;
   max-width: 300px;
-  min-height: 200px;
-  max-height: 200px;
+  min-height: 100px;
+  max-height: 100px;
+
+  mat-card-content {
+    height: 100%
+  }
+}
+
+.survey-left, .survey-right {
+  display: inline-block;
+  height: 100%;
+}
+
+.survey-left {
+  @include mat-icon-size(60px);
+}
+
+.icon-color-good {
+  color: forestgreen;
+}
+
+.icon-color-okay {
+  color: slategrey;
+}
+
+.icon-color-bad {
+  color: darkred;
 }

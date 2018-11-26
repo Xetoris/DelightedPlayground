@@ -17,7 +17,7 @@ export class MockDelightedService implements DelightedServiceInterface {
   /**
    * Returns survey responses, in ascending creation date order.
    */
-  surveyResponses(): Observable<Array<SurveyResponse>> {
+  surveyResponses(count: number = 20): Observable<Array<SurveyResponse>> {
     return of(MockDelightedResponses.surveyResponses)
       .pipe(
         map((response) => response.map(entry => ResponseConverter.parseSurveyResponse(entry))
@@ -27,7 +27,7 @@ export class MockDelightedService implements DelightedServiceInterface {
   /**
    * Returns survey responses, in descending creation date order.
    */
-  latestSurveyResponses(): Observable<Array<SurveyResponse>> {
+  latestSurveyResponses(count: number = 20): Observable<Array<SurveyResponse>> {
     return of(MockDelightedResponses.surveyResponses.reverse())
       .pipe(
         map((response) => response.map(entry => ResponseConverter.parseSurveyResponse(entry))

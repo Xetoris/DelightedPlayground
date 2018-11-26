@@ -14,7 +14,7 @@ export class RecentSurveysComponent implements OnInit {
   constructor(private delighted: DelightedService) { }
 
   ngOnInit() {
-    this.delighted.latestSurveyResponses()
+    this.delighted.latestSurveyResponses(100)
       .subscribe(x => this.results = x);
   }
 }

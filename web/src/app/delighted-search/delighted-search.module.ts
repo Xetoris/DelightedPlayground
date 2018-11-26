@@ -8,11 +8,13 @@ import {
 
 import { DelightedSearchRoutingModule } from './delighted-search-routing.module';
 import { RecentSurveysComponent } from './recent-surveys/recent-surveys.component';
+import { ResponseColorPipe } from './pipes/response-color.pipe';
 import { ResponseIconPipe } from './pipes/response-icon.pipe';
 
 @NgModule({
   declarations: [
     RecentSurveysComponent,
+    ResponseColorPipe,
     ResponseIconPipe
   ],
   imports: [

@@ -18,8 +18,8 @@ export class DelightedService implements DelightedServiceInterface {
   /**
    * Returns survey responses, in ascending creation date order.
    */
-  latestSurveyResponses(): Observable<Array<SurveyResponse>> {
-    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses?recent=true`)
+  latestSurveyResponses(count: number = 20): Observable<Array<SurveyResponse>> {
+    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses?recent=true&count=${count}`)
       .pipe(
         map(response =>  response.map(entry => ResponseConverter.parseSurveyResponse(entry)))
       );
@@ -28,8 +28,8 @@ export class DelightedService implements DelightedServiceInterface {
   /**
    * Returns survey responses, in descending creation date order.
    */
-  surveyResponses(): Observable<Array<SurveyResponse>> {
-    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses`)
+  surveyResponses(count: number = 20): Observable<Array<SurveyResponse>> {
+    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses?count=${count}`)
       .pipe(
         map(response =>  response.map(entry => ResponseConverter.parseSurveyResponse(entry)))
       );

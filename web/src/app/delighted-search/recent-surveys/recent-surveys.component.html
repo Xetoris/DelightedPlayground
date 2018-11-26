@@ -3,7 +3,7 @@
     <mat-card id="response-{{response.id}}">
       <mat-card-content>
         <div class="survey-left">
-          <mat-icon fontSet="fa" fontIcon="{{response.score | responseIcon}}"></mat-icon>
+          <mat-icon class="rating-icon" fontSet="fa" fontIcon="{{response.score | responseIcon}}"></mat-icon>
         </div>
         <div class="survey-right">
           <div class="response-date">{{response.createdAt | date:'medium' }}</div>

@@ -7,10 +7,10 @@ export interface DelightedServiceInterface {
   /**
    * Returns survey responses, in ascending creation date order.
    */
-  surveyResponses(): Observable<Array<SurveyResponse>>;
+  surveyResponses(count: number): Observable<Array<SurveyResponse>>;
 
   /**
    * Returns survey responses, in descending creation date order.
    */
-  latestSurveyResponses(): Observable<Array<SurveyResponse>>;
+  latestSurveyResponses(count: number): Observable<Array<SurveyResponse>>;
 }

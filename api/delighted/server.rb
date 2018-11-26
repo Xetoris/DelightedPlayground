@@ -37,6 +37,9 @@ module Delighted
 
       opts[:order] = 'desc' if params['Recent'] || params['recent']
 
+      count = params['Count'] || params['count']
+      opts[:per_page] = count && /^[1-9][0-9]?$|^100$/.match(count) ? count.to_i : 20
+
       resp = Delighted::SurveyResponse.all(opts)
 
       MultiJson.dump(resp.map { |x| Utility::Converters.survey_response(x) })
