@@ -2,7 +2,7 @@
   <mat-grid-tile *ngFor="let response of results">
     <mat-card id="response-{{response.id}}">
       <mat-card-content>
-        <div class="survey-left">
+        <div class="survey-left icon-color-{{response.score | responseColor}}">
           <mat-icon class="rating-icon" fontSet="fa" fontIcon="{{response.score | responseIcon}}"></mat-icon>
         </div>
         <div class="survey-right">
@@ -11,6 +11,16 @@
           <div class="comment">{{response.comment}}</div>
         </div>
       </mat-card-content>
+      <mat-card-footer>
+        <div class="footer-left">
+          {{response.personProperties.browser}}
+        </div>
+        <div class="footer-middle">
+          <a href="http://www.google.com/" target="_blank">{{response.personProperties.customerId}}</a>
+        </div>
+        <div class="footer-right">
+        </div>
+      </mat-card-footer>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

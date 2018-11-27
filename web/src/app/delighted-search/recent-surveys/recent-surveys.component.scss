@@ -9,29 +9,69 @@ mat-card {
   max-width: 300px;
   min-height: 100px;
   max-height: 100px;
+  display: grid;
+  grid-template: 1fr / 1fr;
 
   mat-card-content {
-    height: 100%
+    display: grid;
+    grid-template: 1fr / 1fr 4fr;
+    grid-column: 1;
+    grid-row: 1;
+    grid-column-gap: 10px;
+  }
+
+  mat-card-footer {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr;
+    padding-bottom: 3px;
   }
 }
 
-.survey-left, .survey-right {
-  display: inline-block;
-  height: 100%;
-}
-
 .survey-left {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
   @include mat-icon-size(60px);
 }
 
-.icon-color-good {
-  color: forestgreen;
+.survey-right {
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.icon-color-okay {
+.footer-left, .footer-right, .footer-middle {
+  justify-self: center;
+  font-size: small;
   color: slategrey;
 }
 
+.footer-left {
+  grid-column: 1;
+  cursor: default;
+}
+
+.footer-middle {
+  grid-column: 2;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.footer-right {
+  grid-column: 3;
+  cursor: default;
+}
+
+.icon-color-good {
+  color: #009900;
+}
+
+.icon-color-okay {
+  color: #b1afaf;
+}
+
 .icon-color-bad {
-  color: darkred;
+  color: #cc0000;
 }
