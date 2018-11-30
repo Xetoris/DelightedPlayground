@@ -17,7 +17,24 @@ module Delighted
           hash[:created_at] = Time.at(hash[:created_at])
           hash[:updated_at] = Time.at(hash[:updated_at])
 
+          hash[:rating] = score_descriptor(hash[:score])
+
           hash
+        end
+
+        # Returns a descriptor string based on the score returned.
+        #
+        # @param score [Integer]
+        #
+        # @return [Symbol]
+        def score_descriptor(score)
+          if score >= 8
+            :good
+          elsif score >= 5
+            :okay
+          else
+            :bad
+          end
         end
       end
     end

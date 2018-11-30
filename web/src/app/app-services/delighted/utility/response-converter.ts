@@ -19,6 +19,7 @@ export class ResponseConverter {
       'updatedAt': source['updated_at'],
       'notes': source['notes'],
       'tags': source['tags'],
+      'rating': source['rating'],
       'personProperties': {
         'delightedSource': personProps['delighted_source'],
         'role': personProps['role'],

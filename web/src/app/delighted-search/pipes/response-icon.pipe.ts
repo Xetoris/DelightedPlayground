@@ -1,22 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 /*
- * Transforms a rating number to the appropriate Font-awesome Icon name.
+ * Transforms a rating string to the appropriate Font-awesome Icon name.
  * Usage:
  *   value | responseIcon
  * Example:
- *   {{ 10 | responseIcon }}
- *   returns: 'grin-hearts'
+ *   {{ 'good' | responseIcon }}
+ *   returns: 'fa-grin-hearts'
  */
 
 @Pipe({name: 'responseIcon'})
 export class ResponseIconPipe implements PipeTransform {
-  transform(value: number): string {
+  transform(value: string): string {
     let iconName;
 
-    if (value >= 8) {
+    let testVal = value.toLowerCase();
+    if (testVal == 'good') {
       iconName = 'fa-grin-stars';
-    } else if (value >= 5) {
+    } else if (testVal == 'okay') {
       iconName = 'fa-meh';
     } else {
       iconName = 'fa-sad-tear'

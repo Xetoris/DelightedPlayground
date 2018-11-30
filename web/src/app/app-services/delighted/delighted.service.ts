@@ -18,8 +18,8 @@ export class DelightedService implements DelightedServiceInterface {
   /**
    * Returns survey responses, in ascending creation date order.
    */
-  latestSurveyResponses(count: number = 20): Observable<Array<SurveyResponse>> {
-    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses?recent=true&count=${count}`)
+  latestSurveyResponses(count: number = 20, ratingFilter: string = null, requireComment: boolean = false): Observable<Array<SurveyResponse>> {
+    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses?recent=true&${DelightedService.paramerize(count, ratingFilter, requireComment)}`)
       .pipe(
         map(response =>  response.map(entry => ResponseConverter.parseSurveyResponse(entry)))
       );
@@ -28,10 +28,28 @@ export class DelightedService implements DelightedServiceInterface {
   /**
    * Returns survey responses, in descending creation date order.
    */
-  surveyResponses(count: number = 20): Observable<Array<SurveyResponse>> {
-    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses?count=${count}`)
+  surveyResponses(count: number = 20, ratingFilter: string = null, requireComment: boolean = false): Observable<Array<SurveyResponse>> {
+    return this.http.get<Array<object>>(`${environment.delighted}/survey-responses?${DelightedService.paramerize(count, ratingFilter, requireComment)}`)
       .pipe(
         map(response =>  response.map(entry => ResponseConverter.parseSurveyResponse(entry)))
       );
+  }
+
+  /**
+   * Converts our parameters into a parameter string.
+   * @param count
+   * @param ratingFilter
+   * @param requireComment
+   */
+  private static paramerize(count: number, ratingFilter: string, requireComment: boolean) {
+    let paramString = `count=${count}&require_comment=${requireComment}`;
+
+    if(ratingFilter != null) {
+      paramString += `&rating=${ratingFilter}`
+    }
+
+
+
+    return paramString;
   }
 }

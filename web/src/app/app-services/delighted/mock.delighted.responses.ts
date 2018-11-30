@@ -25,7 +25,8 @@ export const MockDelightedResponses = {
       'notes': [],
       'tags': [
         'Test'
-      ]
+      ],
+      'rating': 'good'
     },
     {
       'id': '22222222',
@@ -52,7 +53,8 @@ export const MockDelightedResponses = {
       'notes': [],
       'tags': [
         'Test'
-      ]
+      ],
+      'rating': 'bad'
     },
     {
       'id': '33333333',
@@ -79,7 +81,8 @@ export const MockDelightedResponses = {
       'notes': [],
       'tags': [
         'Test'
-      ]
+      ],
+      'rating': 'okay'
     }
   ]
 };

@@ -42,7 +42,22 @@ module Delighted
 
       resp = Delighted::SurveyResponse.all(opts)
 
-      MultiJson.dump(resp.map { |x| Utility::Converters.survey_response(x) })
+      result = resp.map { |x| Utility::Converters.survey_response(x) }
+
+      filter = params['Rating'] || params['rating']
+
+      if filter && !filter.empty?
+        match = filter.downcase.to_sym
+        result = result.select { |x| x[:rating] == match }
+      end
+
+      text_only = params['Require_Comment'] || params['require_comment']
+
+      if text_only && text_only.casecmp?('true')
+        result = result.select { |x| x[:comment] && x[:comment].strip.length > 0 }
+      end
+
+      MultiJson.dump(result)
     end
   end
 end

@@ -4,11 +4,25 @@
   height: 100%;
 }
 
+#toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+#filter-commentRequired {
+  mat-icon {
+    margin-left: 5px;
+  }
+}
+
+.filter-styler {
+  cursor: pointer;
+}
+
 mat-card {
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 100px;
-  max-height: 100px;
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 200px;
+  max-height: 200px;
   display: grid;
   grid-template: 1fr / 1fr;
 
@@ -32,12 +46,31 @@ mat-card {
   grid-row: 1;
   align-self: center;
   justify-self: center;
-  @include mat-icon-size(60px);
+  @include mat-icon-size(80px);
 }
 
 .survey-right {
   grid-column: 2;
   grid-row: 1;
+  display: grid;
+  grid-template: 20px 1fr / 1fr;
+  grid-row-gap: 20px;
+
+  .response-date {
+    grid-area: 1 / 1;
+    align-self: center;
+    justify-self: start;
+    font-size: small;
+    color: slategrey;
+  }
+
+  .rating {
+    grid-area: 1 / 1;
+    align-self: center;
+    justify-self: end;
+    font-size: small;
+    color: slategrey;
+  }
 }
 
 .footer-left, .footer-right, .footer-middle {

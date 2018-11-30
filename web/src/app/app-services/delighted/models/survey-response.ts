@@ -12,6 +12,7 @@ export interface SurveyResponse {
   updatedAt: string;
   notes: string[];
   tags: string[];
+  rating: string;
   personProperties: PersonProperties;
 }
 
