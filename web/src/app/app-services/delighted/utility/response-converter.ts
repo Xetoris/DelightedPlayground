@@ -1,4 +1,4 @@
-import  {SurveyResponse } from '../models/survey-response';
+import { SurveyResponse } from '../models/survey-response';
 
 export class ResponseConverter {
   /**
@@ -8,7 +8,7 @@ export class ResponseConverter {
   static parseSurveyResponse(source): SurveyResponse {
     const personProps = source['person_properties'];
 
-    return {
+    let result = {
       'id': source['id'],
       'person': source['person'],
       'surveyType': source['survey_type'],
@@ -21,20 +21,40 @@ export class ResponseConverter {
       'tags': source['tags'],
       'rating': source['rating'],
       'personProperties': {
-        'delightedSource': personProps['delighted_source'],
-        'role': personProps['role'],
-        'customerId': personProps['customerId'],
-        'ipAddress': personProps['IP Address'],
-        'userAgent': personProps['User Agent'],
-        'page': personProps['Page'],
-        'pageUrl': personProps['Page URL'],
-        'referrerSite': personProps['Referrer Site'],
-        'referrerUrl': personProps['Referrer URL'],
-        'deviceType': personProps['Device Type'],
-        'operatingSystem': personProps['Operating System'],
-        'browser': personProps['Browser'],
-        'country': personProps['Country']
+        'delightedSource': null,
+        'role': null,
+        'customerId': null,
+        'ipAddress': null,
+        'userAgent': null,
+        'page': null,
+        'pageUrl': null,
+        'referrerSite': null,
+        'referrerUrl': null,
+        'deviceType': null,
+        'operatingSystem': null,
+        'browser': null,
+        'country': null
       }
     };
+
+    let parsedProps = result['personProperties'];
+
+    if (personProps != null) {
+      parsedProps['delightedSource'] = personProps['delighted_source'];
+      parsedProps['role'] = personProps['role'];
+      parsedProps['customerId'] = personProps['customerId'];
+      parsedProps['ipAddress'] = personProps['IP Address'];
+      parsedProps['userAgent'] = personProps['User Agent'];
+      parsedProps['page'] = personProps['Page'];
+      parsedProps['pageUrl'] = personProps['Page URL'];
+      parsedProps['referrerSite'] = personProps['Referrer Site'];
+      parsedProps['referrerUrl'] = personProps['Referrer URL'];
+      parsedProps['deviceType'] = personProps['Device Type'];
+      parsedProps['operatingSystem'] = personProps['Operating System'];
+      parsedProps['browser'] = personProps['Browser'];
+      parsedProps['country'] = personProps['Country'];
+    }
+
+    return result;
   }
 }
