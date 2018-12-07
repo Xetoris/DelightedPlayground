@@ -54,7 +54,7 @@ module Delighted
       text_only = params['Require_Comment'] || params['require_comment']
 
       if text_only && text_only.casecmp?('true')
-        result = result.select { |x| x[:comment] && x[:comment].strip.length > 0 }
+        result = result.select { |x| x[:comment] && !x[:comment].strip.empty? }
       end
 
       MultiJson.dump(result)

@@ -31,7 +31,7 @@
           <mat-icon class="rating-icon" fontSet="fa" fontIcon="{{response.rating | responseIcon}}"></mat-icon>
         </div>
         <div class="survey-right">
-          <div class="response-date">{{response.createdAt | date:'medium' }}</div>
+          <div class="response-date">{{response.createdAt }}</div>
           <div class="rating">{{response.score}}</div>
           <div class="comment">{{response.comment != null && response.comment.length > 0 ? '"' + response.comment + '"' : ""}}</div>
         </div>

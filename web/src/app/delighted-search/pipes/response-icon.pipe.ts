@@ -14,13 +14,13 @@ export class ResponseIconPipe implements PipeTransform {
   transform(value: string): string {
     let iconName;
 
-    let testVal = value.toLowerCase();
+    let testVal = value != null ? value.toLowerCase() : value;
     if (testVal == 'good') {
       iconName = 'fa-grin-stars';
-    } else if (testVal == 'okay') {
-      iconName = 'fa-meh';
+    } else if (testVal == 'bad') {
+      iconName = 'fa-sad-tear';
     } else {
-      iconName = 'fa-sad-tear'
+      iconName = 'fa-meh'
     }
 
     return iconName;

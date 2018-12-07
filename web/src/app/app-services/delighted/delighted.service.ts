@@ -16,6 +16,22 @@ export class DelightedService implements DelightedServiceInterface {
   constructor(private http: HttpClient) { }
 
   /**
+   * Converts our parameters into a parameter string.
+   * @param count Number of results to return.
+   * @param ratingFilter Descriptor to filter on.
+   * @param requireComment If the comment must have a comment to be included.
+   */
+  private static paramerize(count: number, ratingFilter: string, requireComment: boolean) {
+    let paramString = `count=${count}&require_comment=${requireComment}`;
+
+    if (ratingFilter != null) {
+      paramString += `&rating=${ratingFilter}`;
+    }
+
+    return paramString;
+  }
+
+  /**
    * Returns survey responses, in ascending creation date order.
    */
   latestSurveyResponses(count: number = 20, ratingFilter: string = null, requireComment: boolean = false): Observable<Array<SurveyResponse>> {
@@ -33,23 +49,5 @@ export class DelightedService implements DelightedServiceInterface {
       .pipe(
         map(response =>  response.map(entry => ResponseConverter.parseSurveyResponse(entry)))
       );
-  }
-
-  /**
-   * Converts our parameters into a parameter string.
-   * @param count
-   * @param ratingFilter
-   * @param requireComment
-   */
-  private static paramerize(count: number, ratingFilter: string, requireComment: boolean) {
-    let paramString = `count=${count}&require_comment=${requireComment}`;
-
-    if(ratingFilter != null) {
-      paramString += `&rating=${ratingFilter}`
-    }
-
-
-
-    return paramString;
   }
 }

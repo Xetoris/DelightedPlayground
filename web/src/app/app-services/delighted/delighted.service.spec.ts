@@ -31,7 +31,7 @@ describe('DelightedService', () => {
         expect(resp.length).toBeGreaterThan(0);
       });
 
-    const req = httpTestingController.match(`${environment.delighted}/v1/survey_responses.json`);
+    const req = httpTestingController.match(`${environment.delighted}/survey-responses`);
 
     req.forEach(x => x.flush(MockDelightedResponses.surveyResponses));
   }));
@@ -43,7 +43,7 @@ describe('DelightedService', () => {
         expect(resp.length).toBeGreaterThan(0);
       });
 
-    const req = httpTestingController.match(`${environment.delighted}/v1/survey_responses.json?order=desc`);
+    const req = httpTestingController.match(`${environment.delighted}/survey-responses?count=20&order=desc`);
 
     req.forEach(x => x.flush(MockDelightedResponses.surveyResponses.reverse()));
   }));

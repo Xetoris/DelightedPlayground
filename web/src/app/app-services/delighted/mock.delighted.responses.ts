@@ -35,8 +35,8 @@ export const MockDelightedResponses = {
       'score': 1,
       'comment': 'NEVER',
       'permalink': 'https://www.google.com',
-      'created_at': '2018-11-25 02:21:09 -0500',
-      'updated_at': '2018-11-25 02:21:09 -0500',
+      'created_at': '2018-11-25 02:20:09 -0500',
+      'updated_at': '2018-11-25 02:20:09 -0500',
       'person_properties': {
         'delighted_source': 'Web',
         'customerId': '456def',
@@ -63,8 +63,8 @@ export const MockDelightedResponses = {
       'score': 5,
       'comment': 'Eh',
       'permalink': 'https://www.google.com',
-      'created_at': '2018-11-25 02:21:09 -0500',
-      'updated_at': '2018-11-25 02:21:09 -0500',
+      'created_at': '2018-11-25 02:19:09 -0500',
+      'updated_at': '2018-11-25 02:19:09 -0500',
       'person_properties': {
         'delighted_source': 'Web',
         'customerId': '789ghi',

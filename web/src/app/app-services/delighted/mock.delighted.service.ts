@@ -14,6 +14,16 @@ import { SurveyResponse } from './models/survey-response';
 
 export class MockDelightedService implements DelightedServiceInterface {
 
+  private static applyFilter(value: string, filter: string) {
+    let match: boolean = true;
+
+    if(filter != null && filter.length > 0) {
+      match = value.toLowerCase() == filter.toLowerCase();
+    }
+
+    return match;
+  }
+
   /**
    * Returns survey responses, in ascending creation date order.
    */
@@ -21,7 +31,7 @@ export class MockDelightedService implements DelightedServiceInterface {
     return of(MockDelightedResponses.surveyResponses)
       .pipe(
         map((response) => response.map(entry => ResponseConverter.parseSurveyResponse(entry))),
-        map( (response) => response.filter(x => this.applyFilter(x['rating'], ratingFilter)))
+        map( (response) => response.filter(x => MockDelightedService.applyFilter(x['rating'], ratingFilter)))
       );
   }
 
@@ -32,21 +42,8 @@ export class MockDelightedService implements DelightedServiceInterface {
     return of(MockDelightedResponses.surveyResponses.reverse())
       .pipe(
         map((response) => response.map(entry => ResponseConverter.parseSurveyResponse(entry))),
-        map( (response) => response.filter(x => this.applyFilter(x['rating'], ratingFilter)))
+        map( (response) => response.filter(x => MockDelightedService.applyFilter(x['rating'], ratingFilter)))
       );
-  }
-
-  private applyFilter(value: string, filter: string) {
-    let match: boolean = true;
-
-    console.log(value);
-    console.log(filter);
-
-    if(filter != null && filter.length > 0) {
-      match = value.toLowerCase() == filter.toLowerCase();
-    }
-
-    return match;
   }
 }
 
